@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>System Access</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: black;
+      color: #00ff00;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 20px;
+      font-size: 18px;
+    }
+
+    #console {
+      white-space: pre-wrap;
+    }
+
+    a.download-link {
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 20px;
+    }
+
+    a.download-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div id="console"></div>
+
+  <script>
+    const lines = [
+      "Initializing access protocol...",
+      "Loading encrypted modules...",
+      "Fetching user IP: 192.168.0.***",
+      "Bypassing firewall...",
+      "Decrypting payload...",
+      "System ready."
+    ];
+
+    const consoleDiv = document.getElementById("console");
+
+    let index = 0;
+
+    function writeLine() {
+      if (index < lines.length) {
+        consoleDiv.innerHTML += lines[index] + "\n";
+        index++;
+        setTimeout(writeLine, 1200);
+      } else {
+        // Show MEGA link
+        const link = document.createElement("a");
+        link.href = "https://www.mediafire.com/file/4mfthjqncowl571/hotpic.zip/file";  // <-- REPLACE THIS
+        link.target = "_blank";
+        link.className = "download-link";
+        link.textContent = "🔗 CLICK HERE TO DOWNLOAD FREE NSFW CONTENT";
+        consoleDiv.appendChild(link);
+      }
+    }
+
+    writeLine();
+  </script>
+</body>
+</html>
